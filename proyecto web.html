@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrandesSuplementos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://img.freepik.com/fotos-premium/fondo-diseno-equipos-fitness-ilustracion_916191-36121.jpg?size=626&ext=jpg&ga=GA1.1.672697106.1718928000&semt=ais_user') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1em;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        nav a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            float: left;
+        }
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            padding: 2em;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        .product-item {
+            margin: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 200px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            width: 150px;
+            height: 150px;
+            border: none;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .product-title {
+            font-size: 1.5em;
+            margin-top: 0.5em;
+            font-family: 'Arial', sans-serif;
+            color: #4CAF50;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .product-rating {
+            color: gold;
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+        .product-price {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+            color: #333;
+        }
+        .btn-comprar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 8px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-comprar:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plataforma de Suplementos Deportivos</h1>
+        <p>Tu tienda en línea de confianza para suplementos deportivos</p>
+    </header>
+    <nav>
+        <a href="#home" onclick="mostrarSeccion('home')">Inicio</a>
+        <a href="#productos" onclick="mostrarSeccion('productos')">Productos</a>
+        <a href="#nosotros" onclick="mostrarSeccion('nosotros')">Nosotros</a>
+        <a href="#contacto" onclick="mostrarSeccion('contacto')">Contacto</a>
+    </nav>
+    <div class="container">
+        <section id="home">
+            <h2>Bienvenido a nuestra tienda</h2>
+            <p>Encuentra los mejores suplementos deportivos para mejorar tu rendimiento.</p>
+            <p>En nuestra tienda, encontrarás una amplia variedad de suplementos deportivos de alta calidad, diseñados para ayudarte a alcanzar tus objetivos de fitness.</p>
+            <p>Explora nuestra selección de productos y descubre cómo podemos ayudarte a mejorar tu rendimiento.</p>
+        </section>
+        <section id="productos" style="display:none;">
+            <h2>Nuestros Productos</h2>
+            <p>Explora nuestra amplia gama de suplementos deportivos de alta calidad.</p>
+            <p>Nuestros productos están diseñados para ayudarte a alcanzar tus objetivos de fitness, ya sea que estés buscando aumentar tu masa muscular, mejorar tu resistencia o simplemente sentirte más saludable.</p>
+            <ul class="product-list">
+                <li class="product-item">
+                    <img src="https://www.nutricore.com.co/images/products/luxe-loft-product-271-210645.jpg" alt="Proteína de whey" class="product-image">
+                    <p class="product-title">Proteína de Whey</p>
+                    <p class="product-rating">★★★★★</p>
+                    <p class="product-price">$85,000 COP</p>
+                    <button class="btn-comprar">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://zonafit.co/wp-content/uploads/2023/08/gold-standard-casein-3.8-lb.jpg" alt="Proteína de caseína" class="product-image">
+                    <p class="product-title">Proteína de Caseína</p>
+                    <p class="product-rating">★★★★☆</p>
+                    <p class="product-price">$99,000 COP</p>
+                    <button class="btn-comprar">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_778750-MCO68892294614_042023-O.webp" alt="Proteína de suero de leche" class="product-image">
+                    <p class="product-title">Proteína de Suero de Leche</p>
+                    <p class="product-rating">★★★★★</p>
+                    <p class="product-price">$92,500 COP</p>
+                    <button class="btn-comprar">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLZLjXpoVCEj8LCT7ClOVlqpzcHYrhjMWUdQ&s" alt="Creatina monohidrato" class="product-image">
+                    <p class="product-title">Creatina Monohidrato</p>
+                    <p class="product-rating">★★★★☆</p>
+                    <p class="product-price">$75,000 COP</p>
+                    <button class="btn-comprar">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://fitnessmania.es/1045/creatine-monodidrate-300-gr.jpg" alt="Creatina hidratada" class="product-image">
+                    <p class="product-title">Creatina Hidratada</p>
+                    <p class="product-rating">★★★★★</p>
+                    <p class="product-price">$82,000 COP</p>
+                    <button class="btn-comprar">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mLYaVvJ6YOi-EChIM72JmywjBGukdseElw&s" alt="Creatina micronizada" class="product-image">
+                    <p class="product-title">Creatina Micronizada</p>
+                    <p class="product-rating">★★★★☆</p>
+                    <p class="product-price">$79,500 COP</p>
+                    <button class="btn-comprar">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBbROUuBBYMzNQY8VmLf83QD83Hb9xlh_-wQ&s" alt="Branched-Chain Amino Acids (BCAAs)" class="product-image">
+                    <p class="product-title">Aminoácidos BCAA</p>
+                    <p class="product-rating">★★★★★</p>
+                    <p class="product-price">$88,000 COP</p>
+                    <button class="btn-comprar">Comprar</button>
+                </li>
+            </ul>
+        </section>
+        <section id="nosotros" style="display:none;">
+            <h2>Nosotros</h2>
+            <p>Somos una empresa dedicada a ofrecer los mejores productos para atletas y entusiastas del deporte. Nuestra misión es proporcionar suplementos de alta calidad que ayuden a mejorar el rendimiento físico y la salud de nuestros clientes.</p>
+            <h3>Visión</h3>
+            <p>Nuestra visión es ser reconocidos como la plataforma líder en suplementos deportivos, conocida por su compromiso con la calidad, la innovación y la satisfacción del cliente.</p>
+            <h3>Misión</h3>
+            <p>Nuestra misión es proporcionar productos que promuevan un estilo de vida activo y saludable, apoyando a nuestros clientes en la búsqueda de sus metas deportivas y de bienestar.</p>
+        </section>
+        <section id="contacto" style="display:none;">
+            <h2>Contacto</h2>
+            <p>Para más información, contáctanos en <a href="mailto:info@suplementosdeportivos.com">info@suplementosdeportivos.com</a>.</p>
+        </section>
+    </div>
+    <footer>
+        <p>Derechos reservados &copy; 2024 GrandesSuplementos</p>
+    </footer>
+
+    <script>
+        function mostrarSeccion(id) {
+            var secciones = document.querySelectorAll("section");
+
+            secciones.forEach(function(seccion) {
+                seccion.style.display = "none";
+            });
+
+            var seccionMostrar = document.getElementById(id);
+            seccionMostrar.style.display = "block";
+        }
+    </script>
+</body>
+</html>
