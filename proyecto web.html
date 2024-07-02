@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrandesSuplementos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2021/04/adelgazar-perder-peso-2289139.jpg?tf=1200x') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1em;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        nav a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            float: left;
+        }
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            padding: 2em;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        .product-item {
+            margin: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 200px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            width: 150px;
+            height: 150px;
+            border: none;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .product-title {
+            font-size: 1.5em;
+            margin-top: 0.5em;
+            font-family: 'Arial', sans-serif;
+            color: #4CAF50;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .product-rating {
+            color: gold;
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+        .product-price {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+            color: #333;
+        }
+        .btn-comprar {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-top: 8px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .btn-comprar:hover {
+            background-color: #45a049;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form label {
+            margin: 0.5em 0 0.2em;
+        }
+        form input, form textarea, form select {
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+        form button {
+            padding: 0.7em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        form button:hover {
+            background-color: #45a049;
+        }
+        .carrito-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-left: 1px solid #ccc;
+            width: 300px;
+            height: 100%;
+            overflow-y: auto;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        .carrito-container.show {
+            transform: translateX(0);
+        }
+        .carrito-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .carrito-toggle:hover {
+            background-color: #45a049;
+        }
+        .carrito-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .carrito-item:last-child {
+            border-bottom: none;
+        }
+        .carrito-total {
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .carrito-item-details {
+            display: flex;
+            align-items: center;
+        }
+        .carrito-item-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .carrito-item-name {
+            flex: 1;
+        }
+        .carrito-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        .carrito-item-quantity button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 3px;
+        }
+        .carrito-item-quantity button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Plataforma de Suplementos Deportivos</h1>
+        <p>Tu tienda en línea de confianza para suplementos deportivos</p>
+        <button onclick="mostrarCarrito()">Ver Carrito</button>
+    </header>
+    <nav>
+        <a href="#home" onclick="mostrarSeccion('home')">Inicio</a>
+        <a href="#productos" onclick="mostrarSeccion('productos')">Productos</a>
+        <a href="#nosotros" onclick="mostrarSeccion('nosotros')">Nosotros</a>
+        <a href="#contacto" onclick="mostrarSeccion('contacto')">Contacto</a>
+        <a href="#captacion" onclick="mostrarSeccion('captacion')">Contáctanos</a>
+    </nav>
+    <div class="container">
+        <section id="home">
+            <h2>Bienvenido a nuestra tienda</h2>
+            <p>Encuentra los mejores suplementos deportivos para mejorar tu rendimiento.</p>
+            <p>En nuestra tienda, encontrarás una amplia variedad de suplementos deportivos de alta calidad, diseñados para ayudarte a alcanzar tus objetivos de fitness.</p>
+            <p>Explora nuestra selección de productos y descubre cómo podemos ayudarte a mejorar tu rendimiento.</p>
+        </section>
+        <section id="productos" style="display:none;">
+            <h2>Nuestros Productos</h2>
+            <ul class="product-list">
+                <li class="product-item">
+                    <img src="https://www.nutricore.com.co/images/products/luxe-loft-product-271-210645.jpg" alt="Proteína de whey" class="product-image">
+                    <p class="product-title">Proteína de Whey</p>
+                    <p class="product-rating">★★★★★</p>
+                    <p class="product-price">$85,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Proteína de Whey', 85000)">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/71tiT0pjHNL._AC_SX425_.jpg" alt="Gainer" class="product-image">
+                    <p class="product-title">Gainer</p>
+                    <p class="product-rating">★★★★☆</p>
+                    <p class="product-price">$90,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Gainer', 90000)">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrAZJ7iJcmZfIXH1xZ33TQjv4-4yupSei3Og&s" alt="Caseína Micelar" class="product-image">
+                    <p class="product-title">Caseína Micelar</p>
+                    <p class="product-rating">★★★★☆</p>
+                    <p class="product-price">$75,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Caseína Micelar', 75000)">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://fitnessmania.es/1045/creatine-monodidrate-300-gr.jpg" alt="Creatina hidratada" class="product-image">
+                    <p class="product-title">Creatina Hidratada</p>
+                    <p class="product-rating">★★★★★</p>
+                    <p class="product-price">$82,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Creatina Hidratada', 82000)">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBbROUuBBYMzNQY8VmLf83QD83Hb9xlh_-wQ&s" alt="Creatina micronizada" class="product-image">
+                    <p class="product-title">Creatina Micronizada</p>
+                    <p class="product-rating">★★★★☆</p>
+                    <p class="product-price">$79,500 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Creatina Micronizada', 79500)">Comprar</button>
+                </li>
+                <li class="product-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mLYaVvJ6YOi-EChIM72JmywjBGukdseElw&s" alt="Branched-Chain Amino Acids (BCAAs)" class="product-image">
+                    <p class="product-title">Aminoácidos BCAA</p>
+                    <p class="product-rating">★★★★★</p>
+                    <p class="product-price">$88,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Aminoácidos BCAA', 88000)">Comprar</button>
+                </li>
+            </ul>
+        </section>
+        <section id="nosotros" style="display:none;">
+            <h2>Nosotros</h2>
+            <p>Somos una empresa dedicada a ofrecer los mejores productos para atletas y entusiastas del deporte. Nuestra misión es proporcionar suplementos de alta calidad que ayuden a mejorar el rendimiento físico y la salud de nuestros clientes.</p>
+            <h3>Visión</h3>
+            <p>Nuestra visión es ser reconocidos como la plataforma líder en suplementos deportivos, conocida por su compromiso con la calidad, la innovación y la satisfacción del cliente.</p>
+            <h3>Misión</h3>
+            <p>Nuestra misión es proporcionar productos que promuevan un estilo de vida activo y saludable, apoyando a nuestros clientes en la búsqueda de sus metas deportivas y de bienestar.</p>
+        </section>
+        <section id="captacion" style="display:none;">
+            <h2>Captación de Clientes</h2>
+            <form id="captacionForm">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <section id="contacto" style="display:none;">
+            <h2>Contacto</h2>
+            <p>Para más información, contáctanos en <a href="mailto:fabian.garciae@cun.edu.co">fabian.garciae@cun.edu.co</a>.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>Derechos reservados &copy; 2024 GrandesSuplementos</p>
+    </footer>
+
+    <div class="carrito-container" id="carrito">
+        <button class="carrito-toggle" onclick="toggleCarrito()">☰</button>
+        <h2>Carrito de Compras</h2>
+        <div id="carrito-items">
+            <!-- Aquí se añadirán los ítems del carrito dinámicamente -->
+        </div>
+        <p class="carrito-total">Total: $<span id="carrito-total">0</span> COP</p>
+        <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+    </div>
+
+    <script>
+        let carrito = []; // Array para almacenar los productos en el carrito
+
+        // Función para agregar un producto al carrito
+        function agregarAlCarrito(nombre, precio) {
+            // Verificar si el producto ya está en el carrito
+            let encontrado = carrito.find(item => item.nombre === nombre);
+            if (encontrado) {
+                encontrado.cantidad++;
+            } else {
+                carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
+            }
+            actualizarCarrito();
+        }
+
+        // Función para actualizar la visualización del carrito
+        function actualizarCarrito() {
+            let carritoContainer = document.getElementById('carrito-items');
+            let totalContainer = document.getElementById('carrito-total');
+            let total = 0;
+
+            // Limpiar el contenido previo del carrito
+            carritoContainer.innerHTML = '';
+
+            // Iterar sobre los productos en el carrito
+            carrito.forEach(function(producto) {
+                let item = document.createElement('div');
+                item.classList.add('carrito-item');
+                item.innerHTML = `
+                    <div class="carrito-item-details">
+                        <img src="${getProductImage(producto.nombre)}" alt="${producto.nombre}" class="carrito-item-image">
+                        <div class="carrito-item-name">${producto.nombre} - $${producto.precio} COP</div>
+                        <div class="carrito-item-quantity">
+                            <button onclick="decrementarCantidad('${producto.nombre}')">-</button>
+                            <span>${producto.cantidad}</span>
+                            <button onclick="incrementarCantidad('${producto.nombre}')">+</button>
+                        </div>
+                    </div>
+                `;
+                carritoContainer.appendChild(item);
+                total += producto.precio * producto.cantidad;
+            });
+
+            // Actualizar el total del carrito
+            totalContainer.textContent = total;
+            
+            // Mostrar el carrito
+            let carritoDiv = document.getElementById('carrito');
+            carritoDiv.classList.add('show');
+        }
+
+        // Función para vaciar el carrito
+        function vaciarCarrito() {
+            carrito = []; // Vaciar el array del carrito
+            actualizarCarrito(); // Actualizar la visualización del carrito
+            ocultarCarrito(); // Ocultar el carrito después de vaciarlo
+        }
+
+        // Función para ocultar el carrito
+        function ocultarCarrito() {
+            let carritoDiv = document.getElementById('carrito');
+            carritoDiv.classList.remove('show');
+        }
+
+        // Función para mostrar una sección específica
+        function mostrarSeccion(id) {
+            let secciones = document.querySelectorAll('section');
+            secciones.forEach(function(seccion) {
+                seccion.style.display = 'none';
+            });
+            let seccionMostrar = document.getElementById(id);
+            seccionMostrar.style.display = 'block';
+            ocultarCarrito(); // Ocultar el carrito al cambiar de sección
+        }
+
+        // Función para mostrar el carrito
+        function mostrarCarrito() {
+            actualizarCarrito();
+        }
+
+        // Función para alternar la visibilidad del carrito
+        function toggleCarrito() {
+            let carritoDiv = document.getElementById('carrito');
+            carritoDiv.classList.toggle('show');
+        }
+
+        // Función para incrementar la cantidad de un producto en el carrito
+        function incrementarCantidad(nombre) {
+            let producto = carrito.find(item => item.nombre === nombre);
+            if (producto) {
+                producto.cantidad++;
+                actualizarCarrito();
+            }
+        }
+
+        // Función para decrementar la cantidad de un producto en el carrito
+        function decrementarCantidad(nombre) {
+            let producto = carrito.find(item => item.nombre === nombre);
+            if (producto && producto.cantidad > 1) {
+                producto.cantidad--;
+                actualizarCarrito();
+            }
+        }
+
+        // Función para obtener la imagen de un producto
+        function getProductImage(nombre) {
+            switch (nombre) {
+                case 'Proteína de Whey':
+                    return 'https://www.nutricore.com.co/images/products/luxe-loft-product-271-210645.jpg';
+                case 'Gainer':
+                    return 'https://images-na.ssl-images-amazon.com/images/I/71tiT0pjHNL._AC_SX425_.jpg';
+                case 'Caseína Micelar':
+                    return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrAZJ7iJcmZfIXH1xZ33TQjv4-4yupSei3Og&s';
+                case 'Creatina Hidratada':
+                    return 'https://fitnessmania.es/1045/creatine-monodidrate-300-gr.jpg';
+                case 'Creatina Micronizada':
+                    return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBbROUuBBYMzNQY8VmLf83QD83Hb9xlh_-wQ&s';
+                case 'Aminoácidos BCAA':
+                    return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mLYaVvJ6YOi-EChIM72JmywjBGukdseElw&s';
+                default:
+                    return '';
+            }
+        }
+    </script>
+</body>
+</html>
