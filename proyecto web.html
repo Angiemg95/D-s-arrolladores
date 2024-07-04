@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrandesSuplementos</title>
     <style>
+        /* Estilos generales */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -213,19 +214,50 @@
         .carrito-item-quantity button:hover {
             background-color: #45a049;
         }
+        /* Estilo para el mensaje de éxito */
+        .success-message {
+            display: none;
+            padding: 1em;
+            margin-top: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Plataforma de Suplementos Deportivos</h1>
+        <h1 id="tituloPrincipal">Plataforma de Suplementos Deportivos</h1>
+        
         <p>Tu tienda en línea de confianza para suplementos deportivos</p>
         <button onclick="mostrarCarrito()">Ver Carrito</button>
     </header>
+    <style>
+        /* Estilos generales */
+    
+        /* Definición de la animación */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        /* Aplicar la animación al título principal */
+        #tituloPrincipal {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+    </style>
+        
     <nav>
         <a href="#home" onclick="mostrarSeccion('home')">Inicio</a>
         <a href="#productos" onclick="mostrarSeccion('productos')">Productos</a>
         <a href="#nosotros" onclick="mostrarSeccion('nosotros')">Nosotros</a>
-        <a href="#contacto" onclick="mostrarSeccion('contacto')">Contacto</a>
         <a href="#captacion" onclick="mostrarSeccion('captacion')">Contáctanos</a>
     </nav>
     <div class="container">
@@ -246,53 +278,49 @@
                     <button class="btn-comprar" onclick="agregarAlCarrito('Proteína de Whey', 85000)">Comprar</button>
                 </li>
                 <li class="product-item">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/71tiT0pjHNL._AC_SX425_.jpg" alt="Gainer" class="product-image">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_885444-MCO49173672210_022022-O.jpg" alt="Gainer" class="product-image">
                     <p class="product-title">Gainer</p>
-                    <p class="product-rating">★★★★☆</p>
-                    <p class="product-price">$90,000 COP</p>
-                    <button class="btn-comprar" onclick="agregarAlCarrito('Gainer', 90000)">Comprar</button>
+                    <p class="product-rating">★★★★★</p>
+                    <p class="product-price">$70,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Gainer', 70000)">Comprar</button>
                 </li>
                 <li class="product-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrAZJ7iJcmZfIXH1xZ33TQjv4-4yupSei3Og&s" alt="Caseína Micelar" class="product-image">
+                    <img src="https://th.bing.com/th/id/R.3619e9e5510db7580572fcbbca2a8274?rik=o%2bxQMxtGY8eu6w&pid=ImgRaw&r=0" alt="Caseína Micelar" class="product-image">
                     <p class="product-title">Caseína Micelar</p>
                     <p class="product-rating">★★★★☆</p>
-                    <p class="product-price">$75,000 COP</p>
-                    <button class="btn-comprar" onclick="agregarAlCarrito('Caseína Micelar', 75000)">Comprar</button>
+                    <p class="product-price">$90,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Caseína Micelar', 90000)">Comprar</button>
                 </li>
                 <li class="product-item">
-                    <img src="https://fitnessmania.es/1045/creatine-monodidrate-300-gr.jpg" alt="Creatina hidratada" class="product-image">
+                    <img src="https://fitnessmania.es/1045/creatine-monodidrate-300-gr.jpg" alt="Creatina Hidratada" class="product-image">
                     <p class="product-title">Creatina Hidratada</p>
-                    <p class="product-rating">★★★★★</p>
-                    <p class="product-price">$82,000 COP</p>
-                    <button class="btn-comprar" onclick="agregarAlCarrito('Creatina Hidratada', 82000)">Comprar</button>
+                    <p class="product-rating">★★★★☆</p>
+                    <p class="product-price">$75,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Creatina Hidratada', 75000)">Comprar</button>
                 </li>
                 <li class="product-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBbROUuBBYMzNQY8VmLf83QD83Hb9xlh_-wQ&s" alt="Creatina micronizada" class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBbROUuBBYMzNQY8VmLf83QD83Hb9xlh_-wQ&s" alt="Creatina Micronizada" class="product-image">
                     <p class="product-title">Creatina Micronizada</p>
                     <p class="product-rating">★★★★☆</p>
-                    <p class="product-price">$79,500 COP</p>
-                    <button class="btn-comprar" onclick="agregarAlCarrito('Creatina Micronizada', 79500)">Comprar</button>
+                    <p class="product-price">$80,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Creatina Micronizada', 80000)">Comprar</button>
                 </li>
                 <li class="product-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mLYaVvJ6YOi-EChIM72JmywjBGukdseElw&s" alt="Branched-Chain Amino Acids (BCAAs)" class="product-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1mLYaVvJ6YOi-EChIM72JmywjBGukdseElw&s" alt="Aminoácidos BCAA" class="product-image">
                     <p class="product-title">Aminoácidos BCAA</p>
-                    <p class="product-rating">★★★★★</p>
-                    <p class="product-price">$88,000 COP</p>
-                    <button class="btn-comprar" onclick="agregarAlCarrito('Aminoácidos BCAA', 88000)">Comprar</button>
+                    <p class="product-rating">★★★★☆</p>
+                    <p class="product-price">$65,000 COP</p>
+                    <button class="btn-comprar" onclick="agregarAlCarrito('Aminoácidos BCAA', 65000)">Comprar</button>
                 </li>
             </ul>
         </section>
         <section id="nosotros" style="display:none;">
-            <h2>Nosotros</h2>
-            <p>Somos una empresa dedicada a ofrecer los mejores productos para atletas y entusiastas del deporte. Nuestra misión es proporcionar suplementos de alta calidad que ayuden a mejorar el rendimiento físico y la salud de nuestros clientes.</p>
-            <h3>Visión</h3>
-            <p>Nuestra visión es ser reconocidos como la plataforma líder en suplementos deportivos, conocida por su compromiso con la calidad, la innovación y la satisfacción del cliente.</p>
-            <h3>Misión</h3>
-            <p>Nuestra misión es proporcionar productos que promuevan un estilo de vida activo y saludable, apoyando a nuestros clientes en la búsqueda de sus metas deportivas y de bienestar.</p>
+            <h2>Sobre Nosotros</h2>
+            <p>En GrandesSuplementos, estamos dedicados a proporcionar productos de la más alta calidad para ayudarte a alcanzar tus metas de fitness. Nuestro equipo de expertos está aquí para ayudarte a encontrar los suplementos perfectos para tus necesidades.</p>
         </section>
         <section id="captacion" style="display:none;">
-            <h2>Captación de Clientes</h2>
-            <form id="captacionForm">
+            <h2>Dejanos tus datos y nosotros te contactamos:</h2>
+            <form id="captacionForm" onsubmit="enviarFormulario(event)">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
 
@@ -307,17 +335,12 @@
 
                 <button type="submit">Enviar</button>
             </form>
-        </section>
-        <section id="contacto" style="display:none;">
-            <h2>Contacto</h2>
-            <p>Para más información, contáctanos en <a href="mailto:fabian.garciae@cun.edu.co">fabian.garciae@cun.edu.co</a>.</p>
+            <p id="formularioMensaje" class="success-message">Datos enviados con éxito</p>
         </section>
     </div>
-
     <footer>
         <p>Derechos reservados &copy; 2024 GrandesSuplementos</p>
     </footer>
-
     <div class="carrito-container" id="carrito">
         <button class="carrito-toggle" onclick="toggleCarrito()">☰</button>
         <h2>Carrito de Compras</h2>
@@ -327,9 +350,41 @@
         <p class="carrito-total">Total: $<span id="carrito-total">0</span> COP</p>
         <button onclick="vaciarCarrito()">Vaciar Carrito</button>
     </div>
-
     <script>
-        let carrito = []; // Array para almacenar los productos en el carrito
+        // Función para manejar el envío del formulario
+        function enviarFormulario(event) {
+            event.preventDefault(); // Evita el envío del formulario por defecto
+            document.getElementById('formularioMensaje').style.display = 'block'; // Muestra el mensaje de éxito
+            document.getElementById('captacionForm').reset(); // Resetea el formulario
+        }
+
+        // Función para mostrar una sección específica
+        function mostrarSeccion(id) {
+            let secciones = document.querySelectorAll('section');
+            secciones.forEach(function(seccion) {
+                seccion.style.display = 'none';
+            });
+            let seccionMostrar = document.getElementById(id);
+            seccionMostrar.style.display = 'block';
+            ocultarCarrito(); // Ocultar el carrito al cambiar de sección
+        }
+
+        // Función para ocultar el carrito
+        function ocultarCarrito() {
+            let carritoDiv = document.getElementById('carrito');
+            carritoDiv.classList.remove('show');
+        }
+
+        // Función para mostrar el carrito
+        function mostrarCarrito() {
+            actualizarCarrito();
+        }
+
+        // Función para alternar la visibilidad del carrito
+        function toggleCarrito() {
+            let carritoDiv = document.getElementById('carrito');
+            carritoDiv.classList.toggle('show');
+        }
 
         // Función para agregar un producto al carrito
         function agregarAlCarrito(nombre, precio) {
@@ -373,7 +428,7 @@
 
             // Actualizar el total del carrito
             totalContainer.textContent = total;
-            
+
             // Mostrar el carrito
             let carritoDiv = document.getElementById('carrito');
             carritoDiv.classList.add('show');
@@ -384,34 +439,6 @@
             carrito = []; // Vaciar el array del carrito
             actualizarCarrito(); // Actualizar la visualización del carrito
             ocultarCarrito(); // Ocultar el carrito después de vaciarlo
-        }
-
-        // Función para ocultar el carrito
-        function ocultarCarrito() {
-            let carritoDiv = document.getElementById('carrito');
-            carritoDiv.classList.remove('show');
-        }
-
-        // Función para mostrar una sección específica
-        function mostrarSeccion(id) {
-            let secciones = document.querySelectorAll('section');
-            secciones.forEach(function(seccion) {
-                seccion.style.display = 'none';
-            });
-            let seccionMostrar = document.getElementById(id);
-            seccionMostrar.style.display = 'block';
-            ocultarCarrito(); // Ocultar el carrito al cambiar de sección
-        }
-
-        // Función para mostrar el carrito
-        function mostrarCarrito() {
-            actualizarCarrito();
-        }
-
-        // Función para alternar la visibilidad del carrito
-        function toggleCarrito() {
-            let carritoDiv = document.getElementById('carrito');
-            carritoDiv.classList.toggle('show');
         }
 
         // Función para incrementar la cantidad de un producto en el carrito
@@ -426,21 +453,24 @@
         // Función para decrementar la cantidad de un producto en el carrito
         function decrementarCantidad(nombre) {
             let producto = carrito.find(item => item.nombre === nombre);
-            if (producto && producto.cantidad > 1) {
+            if (producto) {
                 producto.cantidad--;
+                if (producto.cantidad <= 0) {
+                    carrito = carrito.filter(item => item.nombre !== nombre);
+                }
                 actualizarCarrito();
             }
         }
 
-        // Función para obtener la imagen de un producto
+        // Función para obtener la URL de la imagen del producto
         function getProductImage(nombre) {
             switch (nombre) {
                 case 'Proteína de Whey':
                     return 'https://www.nutricore.com.co/images/products/luxe-loft-product-271-210645.jpg';
                 case 'Gainer':
-                    return 'https://images-na.ssl-images-amazon.com/images/I/71tiT0pjHNL._AC_SX425_.jpg';
+                    return 'https://http2.mlstatic.com/D_NQ_NP_885444-MCO49173672210_022022-O.jpg';
                 case 'Caseína Micelar':
-                    return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrAZJ7iJcmZfIXH1xZ33TQjv4-4yupSei3Og&s';
+                    return 'https://th.bing.com/th/id/R.3619e9e5510db7580572fcbbca2a8274?rik=o%2bxQMxtGY8eu6w&pid=ImgRaw&r=0';
                 case 'Creatina Hidratada':
                     return 'https://fitnessmania.es/1045/creatine-monodidrate-300-gr.jpg';
                 case 'Creatina Micronizada':
@@ -451,6 +481,9 @@
                     return '';
             }
         }
+
+        // Array para almacenar los productos del carrito
+        let carrito = [];
     </script>
 </body>
 </html>
